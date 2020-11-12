@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5"
+	th:with="lang=${#locale.language}" th:lang="${lang}">
+<head>
+	<title>Financy</title>
+	<meta charset ="utf-8">
+	<link th:href="@{style.css}" type="text/css" rel="stylesheet">
+</head>
+<body>
+	<table class="table">
+			<thead>
+				<tr>
+					<th>Id</th>
+					<th>Total</th>
+					<th>Date</th>
+					<th></th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:if="${receipts.empty}">
+					<td colspan="6">No Receipts Available</td>
+				</tr>
+				<tr th:each="receipt : ${receipts}" th:attr="data-row=${receipt.id}" class="row">
+					<td><span th:text="${receipt.id}"></span></td>
+					<td><span th:text="${receipt.total}"></span></td>
+					<td><span th:text="${receipt.date}"></span></td>
+				</tr>
+				
+			</tbody>
+		</table>
+</body>
+</html>
