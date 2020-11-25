@@ -11,8 +11,8 @@ import hu.citec.financy.model.Receipt;
 
 @Repository
 public interface FinancyRepository extends JpaRepository<Receipt, Integer> {
-	@Query("select r from Receipt r where r.id = ?0")
-	public List<Receipt> findAll(int id);
+	@Query("select r from Receipt r where r.active = 1")
+	public List<Receipt> findAll();
 	
 	//@Query("INSERT INTO RECEIPT(id, total, date)VALUES(1, 210,2020-11-17)")
 	//public void save();

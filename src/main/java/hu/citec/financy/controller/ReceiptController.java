@@ -24,8 +24,8 @@ public class ReceiptController {
 	private FinancyRepository repo;
 	
 	@RequestMapping("/")
-	public String getHome(Model model, @RequestParam(required = false) int id) {
-		model.addAttribute("receipts", service.findReceipts(id));
+	public String getHome(Model model) {
+		model.addAttribute("receipts", service.findReceipts());
 		return "index";
 	}
 	

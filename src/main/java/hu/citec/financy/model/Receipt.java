@@ -16,10 +16,10 @@ public class Receipt {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
 	
-	@Column(name = "total")
+	@Column(name = "total", nullable = false)
 	private int total;
 	
-	@Column(name = "date")
+	@Column(name = "date", nullable = false)
 	private Date date;
 	
 	protected Receipt() {
