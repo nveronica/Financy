@@ -2,6 +2,7 @@ package hu.citec.financy.model;
 
 import java.sql.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -14,9 +15,13 @@ public class Receipt {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
-
+	
+	@Column(name = "total")
 	private int total;
-
+	
+	@Column(name = "date")
+	private Date date;
+	
 	protected Receipt() {
 	}
 
@@ -30,7 +35,6 @@ public class Receipt {
 		return id;
 	}
 
-	private Date date;
 
 	public void setId(int id) {
 		this.id = id;

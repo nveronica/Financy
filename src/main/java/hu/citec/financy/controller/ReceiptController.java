@@ -9,13 +9,13 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import hu.citec.financy.dao.FinancyRepository;
 import hu.citec.financy.model.Receipt;
 import hu.citec.financy.service.FinancyService;
 
-@RestController
 @RequestMapping("/")
 public class ReceiptController {
 	@Autowired
@@ -23,10 +23,10 @@ public class ReceiptController {
 	@Autowired
 	private FinancyRepository repo;
 	
-	@GetMapping("/")
-	public List<Receipt> getHome() {
-		//model.addAttribute("receipts", service.findReceipts());
-		return (List<Receipt>) repo.findAll();
+	@RequestMapping("/")
+	public String getHome(Model model, @RequestParam(required = false) int id) {
+		model.addAttribute("receipts", service.findReceipts(id));
+		return "index";
 	}
 	
 	@PostMapping("/receipt")

@@ -18,7 +18,7 @@
 				</tr>
 			</thead>
 			<tbody>
-				<tr th:if="${receipts.empty}">
+				<tr th:if="${receipt.empty}">
 					<td colspan="6">No Receipts Available</td>
 				</tr>
 				<tr th:each="receipt : ${receipts}" th:attr="data-row=${receipt.id}" class="row">

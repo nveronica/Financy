@@ -14,8 +14,9 @@ public class FinancyService {
 	@Autowired
 	private FinancyRepository financyRepository;
 	
-	public List<Receipt> findReceipts() {
-		return (List<Receipt>) financyRepository.findAll();
+	public List<Receipt> findReceipts(int id) {
+		
+		return (List<Receipt>) financyRepository.findAll(id);
 	}
 
 }
